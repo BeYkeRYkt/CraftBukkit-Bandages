@@ -1,0 +1,3 @@
+CraftBukkit-Bandages
+====================
+Using Eclipse
