@@ -1,15 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.bekvon.bukkit.bandages;
 
-import com.nijiko.permissions.PermissionHandler;
-import com.nijikokun.bukkit.Permissions.Permissions;
 import org.bukkit.entity.Player;
+
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import ru.tehkode.permissions.bukkit.PermissionsEx;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +15,7 @@ import java.util.logging.Logger;
  */
 public class Bandages extends JavaPlugin {
 
-    private static PermissionHandler authority;
+    private static PermissionsEx authority;
     private boolean firstRun = true;
     private static BandageManager bmanager;
 
@@ -50,9 +46,8 @@ public class Bandages extends JavaPlugin {
     }
 
     private void checkPermissions() {
-        Plugin p = getServer().getPluginManager().getPlugin("Permissions");
+        Plugin p = getServer().getPluginManager().getPlugin("PermissionsEx");
         if (p != null) {
-            authority = ((Permissions) p).getHandler();
             Logger.getLogger("Minecraft").log(Level.INFO, "[Bandages] Found Permissions Plugin!");
         } else {
             authority = null;
